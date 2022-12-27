@@ -31,7 +31,7 @@ pip3 install netconf-console2
 set system services netconf rfc-compliant
 set system services netconf yang-compliant
 ```
-## Getting Config fromm Junos Device 
+## Getting Config from Junos Device and Validating it against Relvant YANG Model 
 * We can get config from the Junos device as xml output, which is the default data structure for Netconf RPC or as CLI curly brackets hierarchical format or set format.
 * An example of each above named method  is given below.
 * Output will be shown on mgmt client terminal and it can directed to file using ">" operator
@@ -40,7 +40,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc get-config-set.xml
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc get-config-cli.xml
 ```
-## Getting Config From Junos Device and Validating against YANG Model
+* Getting physical interface Config 
 
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc get-config-ifd.xml
@@ -77,8 +77,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 </configuration>
 </nc:rpc-reply>
 ```
-## Compare the Obtained Output with Avilable YANG Model 
-* Change  format of above output as per following.
+* Change the format of above output as per following.
 ```
 cat > ifd-config.xml << EOF
 <configuration xmlns="http://yang.juniper.net/junos/conf/root">
