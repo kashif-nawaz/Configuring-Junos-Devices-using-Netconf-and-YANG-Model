@@ -31,7 +31,7 @@ pip3 install netconf-console2
 set system services netconf rfc-compliant
 set system services netconf yang-compliant
 ```
-## Getting Config from Junos Device and Validating it against Relvant YANG Model 
+## Getting Config from Junos Device and Validating it against Relevant  YANG Model 
 * We can get config from the Junos device as xml output, which is the default data structure for Netconf RPC or as CLI curly brackets hierarchical format or set format.
 * An example of each above named method  is given below.
 * Output will be shown on mgmt client terminal and it can directed to file using ">" operator
