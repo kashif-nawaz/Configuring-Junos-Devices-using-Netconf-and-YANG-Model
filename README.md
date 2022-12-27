@@ -1,8 +1,8 @@
 # Configuring-Junos-Devices-using-Netconf-and-YANG-Model
-* In this wiki, I will explain how to configure Junos devices using NETCONF and YANG Modelv
+* In this wiki, I will explain how to configure Junos devices using NETCONF and YANG Model
 * Introduction about YANG can be obtained from the [document](https://www.juniper.net/documentation/us/en/software/junos/netconf/topics/concept/netconf-yang-modules-overview.html#:~:text=YANG%20data%20models%20comprise%20modules,and%20constraints%20on%20that%20data.)
-* Introduction about NETCONF can be obtained from the [document](https://www.juniper.net/documentation/en_US/bti-series/bti78004.4/topics/concept/c-7800-swicg-about-netconf.html)## Getting YANG Model From Junos Device
-
+* Introduction about NETCONF can be obtained from the [document](https://www.juniper.net/documentation/en_US/bti-series/bti78004.4/topics/concept/c-7800-swicg-about-netconf.html)
+## Getting YANG Model From Junos Device
 ```
 file make-directory /var/tmp/yang
 show system schema module all output-directory /var/tmp/yang
@@ -10,14 +10,14 @@ start shell
 cd /var/tmp
 tar czf yang.tgz yang/*
 ```
-* Downloading YANG to MGMT Client
+* Downloading YANG Models on the MGMT Client
 
 ```
 scp user@junos-device-ip:/var/tmp/yang.tgz  .
 tar -xzf yang.tgz
 ```
 
-## Installing Necessary Tools on Mgmt Client (Ubuntu 20.04)
+## Installing Necessary Tools on the Mgmt Client (Ubuntu 20.04)
 ```
 sudo apt-get install yang-tools
 sudo apt install python3-pip
@@ -25,7 +25,7 @@ pip3 install netconf-console2
 ```
 ## Adding Required Config in Junos
 * Junos config generated via Netconf RPC calls will not have required Namespace in the generated config so it can't be validated against YANG model
-* Add following  in Junos Device
+* Add following  config in Junos Device
 
 ```
 set system services netconf rfc-compliant
@@ -78,7 +78,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 </nc:rpc-reply>
 ```
 ## Compare the Obtained Output with Avilable YANG Model 
-* Change to Formate of the Above output as per following
+* Change  format of above output as per following.
 ```
 cat > ifd-config.xml << EOF
 <configuration xmlns="http://yang.juniper.net/junos/conf/root">
@@ -118,7 +118,7 @@ yanglint --strict ifd-config.xml junos-conf-interfaces@2022-01-01.yang
 * Above operation did not generate  any error message so the physical interface et-0/0/1 config is validated against the junos-conf-interfaces@2022-01-01.yang YANG model.
 
 ## Config Push Operation into Junos Device
-* Netconf client can upload config in Junos device either in xml format  set format or Junos Config hierarchy
+* Netconf client can upload config in Junos device either in xml format,  set format or Junos Config hierarchy
 * Preparing Config in xml format 
 ```
 <edit-config>
@@ -149,7 +149,7 @@ yanglint --strict ifd-config.xml junos-conf-interfaces@2022-01-01.yang
  </edit-config>
 ```
 
-## Example Config for it-0/0/1 interface with slight change in Interface Description
+## Example Config for et-0/0/1 interface with slight change in Interface Description
 ```
 cat > config-ifd-prep << EOF
 <edit-config>
@@ -215,7 +215,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 ```
 ## Config Commit
 ```
-netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc commint-config.xml
+netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc commit-config.xml
 <?xml version='1.0' encoding='UTF-8'?>
 <nc:rpc-reply xmlns:junos="http://xml.juniper.net/junos/22.4R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:ec6ec732-3e6e-43fc-84bd-7ec346bf4095">
 <nc:ok/>
