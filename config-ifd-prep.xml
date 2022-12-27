@@ -1,0 +1,26 @@
+<edit-config>
+    <target>
+      <candidate />
+    </target>
+    <default-operation>merge</default-operation>
+    <config-text>
+	    <configuration-text>
+		    interfaces {
+    et-0/0/1 {
+        description TEST;
+        mtu 9216;
+        unit 0 {
+            family inet {
+                address 192.168.1.2/31;
+            }
+            family iso;
+            family inet6 {
+                address fc00:0:0:1::/127;
+            }
+            family mpls;
+        }
+    }
+}
+           </configuration-text>
+    </config-text>
+ </edit-config>

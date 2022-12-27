@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<nc:rpc-reply xmlns:junos="http://xml.juniper.net/junos/22.4R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:16eb000c-75d6-4929-9716-19b64aac3a70">
+<configuration xmlns="http://yang.juniper.net/junos/conf/root" junos:changed-seconds="1672101257" junos:changed-localtime="2022-12-26 16:34:17 PST">
+    <interfaces xmlns="http://yang.juniper.net/junos/conf/interfaces">
+        <interface>
+            <name>et-0/0/1</name>
+            <description>remote:C1-R2:et-0/0/1</description>
+            <mtu>9216</mtu>
+            <unit>
+                <name>0</name>
+                <family>
+                    <inet>
+                        <address>
+                            <name>192.168.1.2/31</name>
+                        </address>
+                    </inet>
+                    <iso>
+                    </iso>
+                    <inet6>
+                        <address>
+                            <name>fc00:0:0:1::/127</name>
+                        </address>
+                    </inet6>
+                    <mpls>
+                    </mpls>
+                </family>
+            </unit>
+        </interface>
+    </interfaces>
+</configuration>
+</nc:rpc-reply>

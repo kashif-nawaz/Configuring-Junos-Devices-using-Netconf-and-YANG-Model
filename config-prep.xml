@@ -1,0 +1,11 @@
+<edit-config>
+    <target>
+      <candidate />
+    </target>
+    <default-operation>merge</default-operation>
+    <config-text>
+	    <configuration-text>
+               <put your text config here/>
+           </configuration-text>
+    </config-text>
+ </edit-config>

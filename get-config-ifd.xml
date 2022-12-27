@@ -1,0 +1,10 @@
+<get-configuration format="text">
+       <configuration>
+          <interfaces>
+	     <interface>
+               <name>et-0/0/1</name>
+	     </interface>
+	  </interfaces>
+       </configuration>
+</get-configuration>
+ 

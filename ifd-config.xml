@@ -1,0 +1,28 @@
+<configuration xmlns="http://yang.juniper.net/junos/conf/root">
+    <interfaces xmlns="http://yang.juniper.net/junos/conf/interfaces">
+        <interface>
+            <name>et-0/0/1</name>
+            <description>remote:C1-R2:et-0/0/1</description>
+            <mtu>9216</mtu>
+            <unit>
+                <name>0</name>
+                <family>
+                    <inet>
+                        <address>
+                            <name>192.168.1.2/31</name>
+                        </address>
+                    </inet>
+                    <iso>
+                    </iso>
+                    <inet6>
+                        <address>
+                            <name>fc00:0:0:1::/127</name>
+                        </address>
+                    </inet6>
+                    <mpls>
+                    </mpls>
+                </family>
+            </unit>
+        </interface>
+    </interfaces>
+</configuration>
