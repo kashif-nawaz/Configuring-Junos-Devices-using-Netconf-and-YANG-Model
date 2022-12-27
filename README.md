@@ -148,7 +148,7 @@ yanglint --strict ifd-config.xml junos-conf-interfaces@2022-01-01.yang
  </edit-config>
 ```
 
-## Example Config for et-0/0/1 interface with slight change in Interface Description
+* Example Config for et-0/0/1 interface with slight change in Interface Description
 ```
 cat > config-ifd-prep << EOF
 <edit-config>
@@ -179,7 +179,7 @@ cat > config-ifd-prep << EOF
  </edit-config>
 EOF
 ```
-## Pushing Config
+* Pushing Config
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password}  --rpc config-ifd-prep.xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -187,7 +187,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 <nc:ok/>
 </nc:rpc-reply>
 ```
-## Compare Candidate Config with Running Config
+* Compare Candidate Config with Running Config
 
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password}  --rpc compare-candidate.xml
@@ -204,7 +204,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 </configuration>
 </nc:rpc-reply>
 ```
-## Config Validatation
+* Config Validatation
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc validate-config.xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -212,7 +212,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 <nc:ok/>
 </nc:rpc-reply>
 ```
-## Config Commit
+* Config Commit
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc commit-config.xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -220,7 +220,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 <nc:ok/>
 </nc:rpc-reply>
 ```
-## Config Rollback
+* Config Rollback
 
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password}  --rpc discard-changes.xml
@@ -229,7 +229,7 @@ netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} -
 <nc:ok/>
 </nc:rpc-reply>
 ```
-## Closing the Session
+* Closing the Session
 
 ```
 netconf-console2 --host ${junos-device-mgmt-ip} --port 830 --user ${user-name} --password ${password} --rpc close-session.xml
